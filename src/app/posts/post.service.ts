@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { Post } from './post.model';
 import { map} from 'rxjs/operators';
 
+
 @Injectable({providedIn: 'root'})
 export class PostsService {
     private posts: Post[] = [];
@@ -35,6 +36,10 @@ export class PostsService {
     
     getPostUpdateListener() {
         return this.postsUpdated.asObservable();
+    }
+
+    getPost(id: string) {
+        return {...this.posts.find(p => p.id === id)};
     }
     
     addPost(title: string, content: string) {
