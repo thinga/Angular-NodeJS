@@ -59,7 +59,6 @@ router.put("/:id", multer({ storage: storage }).single("image"),
     });
     console.log(post);
     Post.updateOne({ _id: req.params.id }, post).then(result => {
-      console.log(result);
       res.status(200).json({ message: "Update successful!" });
     });
   });
@@ -74,10 +73,11 @@ router.put("/:id", multer({ storage: storage }).single("image"),
             .skip(pageSize * (currentPage - 1))
             .limit(pageSize);
     }
-    postQuery.then(documents => {
-         fetchedposts = document;
+    postQuery
+    .then(documents => {fetchedposts = documents;
           return Post.count();
-            }).then (count => {
+            })
+            .then (count => {
                 res.status(200).json({
                     message: "Posts fetched successfully!",
                     posts: fetchedposts,
