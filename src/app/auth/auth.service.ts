@@ -14,7 +14,5 @@ export class AuthService {
          .subscribe(response => {
              console.log(response);
          })
-  }
-   
-  
+  } 
 }
