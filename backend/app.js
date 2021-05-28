@@ -8,8 +8,8 @@ const userRoutes = require("./routes/user");
 const app = express();
 
 
-mongoose.connect("mongodb+srv://nga:dlQIa3agpH4dXSvr@cluster0.kpj56.mongodb.net/myapp?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://nga:dlQIa3agpH4dXSvr@cluster0.kpj56.mongodb.net/myapp",
+{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Connected to database!')
     })
