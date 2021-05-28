@@ -1,7 +1,8 @@
 const express = require("express");
 const multer = require("multer");
-const { count } = require("../models/post");
+
 const Post = require('../models/post');
+const checkAuth = require("../middleware/check-auth");
 const router = express.Router();
 
 const MIME_TYPE_MAP = {
@@ -98,7 +99,7 @@ router.get("/:id", (req, res, next) => {
     });
 
 
-    router.delete("/:id", (req, res, next) => {
+    router.delete("/:id", checkAuth, (req, res, next) => {
     Post.deleteOne({ _id: req.params.id }).then(result => {
         console.log(result);
         res.status(200).json({ message: "Post deleted!" });
