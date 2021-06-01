@@ -6,6 +6,7 @@ import { AuthData } from "./auth-data.model";
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
+   private isAuthenticated = false;
    private token: string;
    private authStatusListerner = new Subject<boolean>();
   constructor(private http: HttpClient) { }
@@ -13,10 +14,15 @@ export class AuthService {
   getToken() {
     return this.token;
   }
+
+  getIsAuth() {
+    return this.isAuthenticated;
+  }
   
   getAuthStatusListener() {
     return this.authStatusListerner.asObservable();
   }
+
   createUser(email: string, password: string) {
       const authData: AuthData = {email: email, password: password};
     this.http.post("http://localhost:3000/api/user/signup", authData)
@@ -31,7 +37,11 @@ export class AuthService {
     .subscribe(response => {
       const token = response.token;
       this.token = token;
-      this.authStatusListerner.next(true);
+      if (token) {
+        this.isAuthenticated = true;
+        this.authStatusListerner.next(true);
+      }
+     
     })
   }
 }
