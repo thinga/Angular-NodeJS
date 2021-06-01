@@ -42,6 +42,12 @@ export class AuthService {
         this.authStatusListerner.next(true);
       }
      
-    })
+    });
+  }
+
+  logout() {
+    this.token = null;
+    this.isAuthenticated = false;
+    this.authStatusListerner.next(false);
   }
 }
