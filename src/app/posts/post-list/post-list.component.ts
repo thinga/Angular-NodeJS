@@ -3,7 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Post } from '../post.model';
-import { PostsService } from '../post.service';
+import { PostsService } from '../posts.service';
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
@@ -26,9 +26,10 @@ export class PostListComponent implements OnInit, OnDestroy {
   private postsSub: Subscription;
   private authStatusSub: Subscription;
 
-  constructor(public postsService: PostsService, private authService: AuthService){
-
-  }
+  constructor(
+     public postsService: PostsService, 
+     private authService: AuthService
+    )  {}
  
   ngOnInit() {
     this.isLoading = true;
