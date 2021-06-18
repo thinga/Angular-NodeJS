@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class PostsService {
+ 
     private posts: Post[] = [];
     private postsUpdated = new Subject<{posts:Post[], postCount: number}>();
 
@@ -56,9 +57,10 @@ export class PostsService {
              imagePath: string;
             }>("http://localhost:3000/api/posts/" + id
         );
-    }
+    } 
 
     
+
     addPost(title: string, content: string, image: File) {
         const postData = new FormData();
         postData.append("title", title);
