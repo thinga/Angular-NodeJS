@@ -13,7 +13,8 @@ import { mimeType } from './mime-type.validator';
 @Component({
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
-  styleUrls: ['./post-create.component.css']
+  styleUrls: ['./post-create.component.css'],
+
 })
 export class PostCreateComponent implements OnInit, OnDestroy {
   enteredContent = "";
