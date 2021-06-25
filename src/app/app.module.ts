@@ -33,7 +33,8 @@ import { PostsModule } from './posts/posts.module';
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
-    PostsModule
+    PostsModule, 
+    
    
     
 

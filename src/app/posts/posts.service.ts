@@ -56,8 +56,7 @@ export class PostsService {
              content: string;
              imagePath: string;
              creator: string;
-            }>("http://localhost:3000/api/posts/" + id
-        );
+            }>("http://localhost:3000/api/posts/" + id);
     } 
 
     
