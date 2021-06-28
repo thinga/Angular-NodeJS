@@ -15,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,12 +29,7 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
-    PostsModule, 
-    AuthModule
-   
-    
-
-  
+    PostsModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [
